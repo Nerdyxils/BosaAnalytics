@@ -34,10 +34,20 @@ export default function Contact() {
           <ul className="mt-3 space-y-2 text-sm">
             <li><strong>Contact:</strong> Sanmi Obasa</li>
             <li><strong>Phone:</strong> +1 647-533-9375 (WhatsApp)</li>
-            <li><strong>Email:</strong> <a className="text-primary underline" href="mailto:Sanmi.obasa@bosaanalytics.com">Sanmi.obasa@bosaanalytics.com</a></li>
+            <li><strong>Email:</strong> <a className="text-primary underline" href="mailto:info@bosaanalytics.com">info@bosaanalytics.com</a></li>
           </ul>
-          {/* Optional Map Embed */}
-          <div className="mt-6 aspect-[16/10] bg-[url('/assets/placeholder-2.svg')] bg-cover bg-center rounded-lg" />
+          {/* Map Embed */}
+          <div className="mt-6 aspect-[16/10] overflow-hidden rounded-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.492080254821!2d-79.64185918450734!3d43.587286779125955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b474b19d6c071%3A0x8b7a0c5d4fb7b7b0!2s1311%20Galesway%20Blvd%2C%20Mississauga%2C%20ON%20L5V%203B3%2C%20Canada!5e0!3m2!1sen!2sca!4v1642345678901!5m2!1sen!2sca"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </section>
     </>

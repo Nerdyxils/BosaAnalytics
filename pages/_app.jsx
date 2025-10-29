@@ -6,6 +6,7 @@ import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PageLoader from '../components/PageLoader';
+import FloatingButtons from '../components/FloatingButtons';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -31,6 +32,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       {loading && <PageLoader />}
       <Navbar />
+      <FloatingButtons />
       <AnimatePresence mode="wait">
         <motion.main
           key={router.asPath}

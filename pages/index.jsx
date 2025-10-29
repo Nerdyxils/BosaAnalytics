@@ -57,8 +57,11 @@ export default function Home() {
       <HeroSection />
 
       {/* Stats Section */}
-      <section className="container-wide py-12 border-b border-slate-100">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="container-wide py-12 border-b border-slate-100 relative overflow-hidden">
+        <div className="absolute top-0 right-0 opacity-5">
+          <img src="/assets/svg/dots-pattern.svg" alt="" className="h-96 w-96" />
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl md:text-4xl font-extrabold text-primary">{stat.value}</div>
@@ -69,7 +72,10 @@ export default function Home() {
       </section>
 
       {/* What We Do */}
-      <section className="container-wide py-20" id="what-we-do">
+      <section className="container-wide py-20 relative" id="what-we-do">
+        <div className="absolute top-0 left-0 opacity-5">
+          <img src="/assets/svg/accent-circle.svg" alt="" className="h-64 w-64" />
+        </div>
         <SectionHeader eyebrow="Expertise" title="What We Do" align="center" />
         <p className="mt-4 max-w-3xl mx-auto text-center text-body">
           We deliver end-to-end solutions across the data-to-impact value chain—from analytics infrastructure and strategic planning to program execution and policy implementation.
@@ -106,6 +112,9 @@ export default function Home() {
       {/* Thought Leadership / Philosophy */}
       <section className="relative py-20">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0957860f] to-[#0000000a]" />
+        <div className="absolute top-0 left-0 w-full -z-10">
+          <img src="/assets/svg/wave-divider.svg" alt="" className="w-full h-32 opacity-30" />
+        </div>
         <div className="container-wide">
           <div className="grid gap-10 lg:grid-cols-2 items-center">
             <div>

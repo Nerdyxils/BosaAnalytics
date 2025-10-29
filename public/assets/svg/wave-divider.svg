@@ -1,0 +1,11 @@
+<svg width="1440" height="120" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <path d="M0,64 L48,69.3 C96,75 192,85 288,85.3 C384,85 480,75 576,64 C672,53 768,43 864,48 C960,53 1056,75 1152,80 C1248,85 1344,75 1392,70 L1440,64 L1440,120 L1392,120 C1344,120 1248,120 1152,120 C1056,120 960,120 864,120 C768,120 672,120 576,120 C480,120 384,120 288,120 C192,120 96,120 48,120 L0,120 Z" fill="url(#waveGradient)"/>
+  <defs>
+    <linearGradient id="waveGradient" x1="0" y1="0" x2="1440" y2="0">
+      <stop offset="0%" stop-color="#095786" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#863809" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#095786" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+</svg>
+

@@ -1,0 +1,64 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.3">
+    <circle cx="60" cy="60" r="3" fill="#095786"/>
+    <circle cx="120" cy="60" r="3" fill="#863809"/>
+    <circle cx="180" cy="60" r="3" fill="#095786"/>
+    <circle cx="240" cy="60" r="3" fill="#863809"/>
+    <circle cx="300" cy="60" r="3" fill="#095786"/>
+    <circle cx="360" cy="60" r="3" fill="#863809"/>
+    <circle cx="420" cy="60" r="3" fill="#095786"/>
+    <circle cx="480" cy="60" r="3" fill="#863809"/>
+    <circle cx="540" cy="60" r="3" fill="#095786"/>
+    
+    <circle cx="60" cy="150" r="3" fill="#863809"/>
+    <circle cx="120" cy="150" r="3" fill="#095786"/>
+    <circle cx="180" cy="150" r="3" fill="#863809"/>
+    <circle cx="240" cy="150" r="3" fill="#095786"/>
+    <circle cx="300" cy="150" r="3" fill="#863809"/>
+    <circle cx="360" cy="150" r="3" fill="#095786"/>
+    <circle cx="420" cy="150" r="3" fill="#863809"/>
+    <circle cx="480" cy="150" r="3" fill="#095786"/>
+    <circle cx="540" cy="150" r="3" fill="#863809"/>
+    
+    <circle cx="60" cy="240" r="3" fill="#095786"/>
+    <circle cx="120" cy="240" r="3" fill="#863809"/>
+    <circle cx="180" cy="240" r="3" fill="#095786"/>
+    <circle cx="240" cy="240" r="3" fill="#863809"/>
+    <circle cx="300" cy="240" r="3" fill="#095786"/>
+    <circle cx="360" cy="240" r="3" fill="#863809"/>
+    <circle cx="420" cy="240" r="3" fill="#095786"/>
+    <circle cx="480" cy="240" r="3" fill="#863809"/>
+    <circle cx="540" cy="240" r="3" fill="#095786"/>
+    
+    <circle cx="60" cy="330" r="3" fill="#863809"/>
+    <circle cx="120" cy="330" r="3" fill="#095786"/>
+    <circle cx="180" cy="330" r="3" fill="#863809"/>
+    <circle cx="240" cy="330" r="3" fill="#095786"/>
+    <circle cx="300" cy="330" r="3" fill="#863809"/>
+    <circle cx="360" cy="330" r="3" fill="#095786"/>
+    <circle cx="420" cy="330" r="3" fill="#863809"/>
+    <circle cx="480" cy="330" r="3" fill="#095786"/>
+    <circle cx="540" cy="330" r="3" fill="#863809"/>
+    
+    <circle cx="60" cy="420" r="3" fill="#095786"/>
+    <circle cx="120" cy="420" r="3" fill="#863809"/>
+    <circle cx="180" cy="420" r="3" fill="#095786"/>
+    <circle cx="240" cy="420" r="3" fill="#863809"/>
+    <circle cx="300" cy="420" r="3" fill="#095786"/>
+    <circle cx="360" cy="420" r="3" fill="#863809"/>
+    <circle cx="420" cy="420" r="3" fill="#095786"/>
+    <circle cx="480" cy="420" r="3" fill="#863809"/>
+    <circle cx="540" cy="420" r="3" fill="#095786"/>
+    
+    <circle cx="60" cy="510" r="3" fill="#863809"/>
+    <circle cx="120" cy="510" r="3" fill="#095786"/>
+    <circle cx="180" cy="510" r="3" fill="#863809"/>
+    <circle cx="240" cy="510" r="3" fill="#095786"/>
+    <circle cx="300" cy="510" r="3" fill="#863809"/>
+    <circle cx="360" cy="510" r="3" fill="#095786"/>
+    <circle cx="420" cy="510" r="3" fill="#863809"/>
+    <circle cx="480" cy="510" r="3" fill="#095786"/>
+    <circle cx="540" cy="510" r="3" fill="#863809"/>
+  </g>
+</svg>
+

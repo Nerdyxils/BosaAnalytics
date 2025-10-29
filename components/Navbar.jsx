@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
@@ -13,6 +14,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -33,7 +35,15 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm text-body hover:text-primary">
+            <Link 
+              key={item.href} 
+              href={item.href} 
+              className={`text-sm transition-colors ${
+                router.pathname === item.href 
+                  ? 'text-primary font-semibold border-b-2 border-primary' 
+                  : 'text-body hover:text-primary'
+              }`}
+            >
               {item.label}
             </Link>
           ))}
@@ -59,7 +69,14 @@ export default function Navbar() {
           </div>
           <div className="px-6 py-4 space-y-4">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className="block text-lg" onClick={() => setOpen(false)}>
+              <Link 
+                key={item.href} 
+                href={item.href} 
+                className={`block text-lg transition-colors ${
+                  router.pathname === item.href ? 'text-primary font-semibold' : ''
+                }`}
+                onClick={() => setOpen(false)}
+              >
                 {item.label}
               </Link>
             ))}
@@ -72,5 +89,3 @@ export default function Navbar() {
     </header>
   );
 }
-
-

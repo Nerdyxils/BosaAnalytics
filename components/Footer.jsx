@@ -28,7 +28,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm opacity-90">
             <li>Sanmi Obasa</li>
             <li>Phone: +1 647-533-9375 (WhatsApp)</li>
-            <li>Email: <a href="mailto:Sanmi.obasa@bosaanalytics.com" className="underline">Sanmi.obasa@bosaanalytics.com</a></li>
+            <li>Email: <a href="mailto:info@bosaanalytics.com" className="underline">info@bosaanalytics.com</a></li>
           </ul>
         </div>
         <div>

@@ -55,36 +55,65 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay & Background */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-50 bg-white">
-          <div className="container-wide flex h-16 items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 text-lg font-extrabold text-primary">
-              <Image src="/assets/logo.png" alt="BOSA Analytics" width={24} height={24} className="h-6 w-auto" />
-              <span className="text-black font-semibold">BOSA Analytics</span>
-            </Link>
-            <button aria-label="Close menu" className="p-2" onClick={() => setOpen(false)}>
-              <X className="h-6 w-6" />
-            </button>
+        <>
+          {/* Backdrop */}
+          <div 
+            className="md:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+            aria-hidden="true"
+          />
+          
+          {/* Mobile Menu Panel */}
+          <div className="md:hidden fixed top-0 right-0 h-full w-80 z-50 bg-white shadow-2xl">
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+                <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+                  <Image src="/assets/logo.png" alt="BOSA Analytics" width={28} height={28} className="h-7 w-auto" />
+                  <span className="font-extrabold tracking-tight text-primary">BOSA <span className="text-black font-semibold">Analytics</span></span>
+                </Link>
+                <button 
+                  aria-label="Close menu" 
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors" 
+                  onClick={() => setOpen(false)}
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              
+              {/* Navigation Links */}
+              <div className="flex-1 px-6 py-6 space-y-2 overflow-y-auto">
+                {navItems.map((item) => (
+                  <Link 
+                    key={item.href} 
+                    href={item.href}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                      router.pathname === item.href 
+                        ? 'bg-primary/10 text-primary font-semibold' 
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
+                    }`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+              
+              {/* Footer CTA */}
+              <div className="p-6 border-t border-gray-100">
+                <Link 
+                  href="/contact" 
+                  className="btn btn-primary w-full flex items-center justify-center gap-2" 
+                  onClick={() => setOpen(false)}
+                >
+                  Speak with a Consultant
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className="px-6 py-4 space-y-4">
-            {navItems.map((item) => (
-              <Link 
-                key={item.href} 
-                href={item.href} 
-                className={`block text-lg transition-colors ${
-                  router.pathname === item.href ? 'text-primary font-semibold' : ''
-                }`}
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link href="/contact" className="btn btn-primary w-full" onClick={() => setOpen(false)}>
-              Speak with a Consultant
-            </Link>
-          </div>
-        </div>
+        </>
       )}
     </header>
   );

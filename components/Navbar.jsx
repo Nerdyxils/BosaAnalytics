@@ -25,6 +25,37 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Prevent body scroll and handle scroll events when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      // Lock body scroll
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      
+      // Close menu on scroll attempt
+      const handleScroll = () => {
+        setOpen(false);
+      };
+
+      // Close menu on touch move outside the menu panel
+      const handleTouchMove = (e) => {
+        const menuPanel = e.target.closest('[data-menu-panel]');
+        if (!menuPanel) {
+          setOpen(false);
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('touchmove', handleTouchMove, { passive: true });
+      
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('touchmove', handleTouchMove);
+      };
+    }
+  }, [open]);
+
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-colors ${scrolled ? 'bg-white/95 backdrop-blur shadow-sm' : 'bg-transparent'}`}>
       <nav className="container-wide flex h-16 items-center justify-between">
@@ -66,7 +97,11 @@ export default function Navbar() {
           />
           
           {/* Mobile Menu Panel */}
-          <div className="md:hidden fixed top-0 right-0 h-full w-80 z-50 bg-white shadow-2xl">
+          <div 
+            className="md:hidden fixed top-0 right-0 h-full w-80 z-50 bg-white shadow-2xl"
+            data-menu-panel
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex flex-col h-full">
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">

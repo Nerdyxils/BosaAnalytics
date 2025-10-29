@@ -1,7 +1,60 @@
 import Head from 'next/head';
+import { useState } from 'react';
+import { CheckCircle2, X } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError('');
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    setShowSuccess(false);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/info@bosaanalytics.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: 'New Contact Form Submission - BOSA Analytics',
+          _captcha: 'false'
+        })
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        setShowSuccess(true);
+        setFormData({ name: '', email: '', message: '' });
+        // Scroll to success message
+        setTimeout(() => {
+          document.querySelector('[data-success-message]')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      } else {
+        setError('Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -13,20 +66,84 @@ export default function Contact() {
       </section>
 
       <section className="container-wide my-12 grid gap-8 lg:grid-cols-2">
-        <form className="surface-card p-6 grid gap-4">
+        <form 
+          onSubmit={handleSubmit}
+          className="surface-card p-6 grid gap-4"
+        >
+          {showSuccess && (
+            <div data-success-message className="p-4 rounded-lg bg-green-50 text-green-700 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-5 w-5" />
+                <span className="text-sm font-medium">Thank you! Your message has been sent successfully. We'll get back to you soon.</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowSuccess(false)}
+                className="p-1 hover:bg-green-100 rounded"
+                aria-label="Dismiss"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+          
+          {error && (
+            <div className="p-4 rounded-lg bg-red-50 text-red-700 flex items-center justify-between">
+              <span className="text-sm font-medium">{error}</span>
+              <button
+                type="button"
+                onClick={() => setError('')}
+                className="p-1 hover:bg-red-100 rounded"
+                aria-label="Dismiss"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+          
           <div>
-            <label className="text-sm font-medium">Name</label>
-            <input className="mt-1 h-11 w-full rounded-md border border-slate-300 px-3" required />
+            <label htmlFor="name" className="text-sm font-medium">Name</label>
+            <input 
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              className="mt-1 h-11 w-full rounded-md border border-slate-300 px-3 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" 
+              required 
+            />
           </div>
           <div>
-            <label className="text-sm font-medium">Email</label>
-            <input type="email" className="mt-1 h-11 w-full rounded-md border border-slate-300 px-3" required />
+            <label htmlFor="email" className="text-sm font-medium">Email</label>
+            <input 
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="mt-1 h-11 w-full rounded-md border border-slate-300 px-3 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" 
+              required 
+            />
           </div>
           <div>
-            <label className="text-sm font-medium">Message</label>
-            <textarea rows="5" className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" />
+            <label htmlFor="message" className="text-sm font-medium">Message</label>
+            <textarea 
+              id="message"
+              name="message"
+              rows="5"
+              value={formData.message}
+              onChange={handleChange}
+              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+              required
+            />
           </div>
-          <button className="btn btn-primary w-fit">Send Message</button>
+          <button 
+            type="submit" 
+            disabled={loading}
+            className="btn btn-primary w-fit disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {loading ? 'Sending...' : 'Send Message'}
+          </button>
         </form>
 
         <div className="surface-card p-6">

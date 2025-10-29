@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#ffffff"/>
+  <g opacity="0.12">
+    <circle cx="120" cy="120" r="120" fill="#095786"/>
+    <circle cx="700" cy="520" r="160" fill="#863809"/>
+  </g>
+  <text x="50%" y="50%" font-size="36" font-family="Inter, Arial, sans-serif" fill="#333" text-anchor="middle">Visual Placeholder</text>
+</svg>
+
+

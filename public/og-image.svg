@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b6aa3"/>
+      <stop offset="1" stop-color="#863809"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g fill="#ffffff" font-family="Inter, Arial, sans-serif">
+    <text x="60" y="200" font-size="88" font-weight="800">BOSA Analytics</text>
+    <text x="60" y="280" font-size="36" opacity="0.9">Transforming Data. Empowering Decisions. Driving Economies.</text>
+  </g>
+</svg>
+
+

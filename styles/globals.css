@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+:root {
+  --primary: #095786;
+  --accent: #863809;
+  --black: #000000;
+  --white: #ffffff;
+}
+
+body {
+  @apply font-inter text-body bg-white antialiased;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold transition-colors duration-200 border;
+}
+.btn-primary { @apply bg-primary text-white border-primary hover:bg-white hover:text-primary; }
+.btn-ghost { @apply bg-white text-primary border-primary hover:bg-primary hover:text-white; }
+
+.container-wide { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+
+/* Gradient utility for hero backgrounds */
+.bg-hero {
+  background-image: radial-gradient(60% 80% at 0% 0%, rgba(9,87,134,0.18) 0%, rgba(9,87,134,0) 60%),
+    radial-gradient(60% 80% at 100% 0%, rgba(134,56,9,0.15) 0%, rgba(134,56,9,0) 60%);
+}
+
+/* Cards */
+.surface-card { @apply bg-white shadow-card rounded-xl ring-1 ring-black/5; }
+
+

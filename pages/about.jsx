@@ -1,16 +1,66 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useState } from 'react';
 import SectionHeader from '../components/SectionHeader';
 import CTASection from '../components/CTASection';
 import { Target, Users, TrendingUp, Award } from 'lucide-react';
 
 export default function About() {
+  const [expandedBios, setExpandedBios] = useState({});
+
+  const toggleBio = (name) => {
+    setExpandedBios(prev => ({
+      ...prev,
+      [name]: !prev[name]
+    }));
+  };
+
   const team = [
-    { name: 'Alain Hoodashtian', title: 'Global Development Lead', bio: 'Leading international partnerships and economic development initiatives.' },
-    { name: 'Rajib Verman', title: 'Systems Analyst', bio: 'Transforming complex data into actionable business intelligence.' },
-    { name: 'Francis Elimimian', title: 'Technology Analyst', bio: 'Designing scalable technology solutions for enterprise transformation.' },
-    { name: 'Sufuyanu Kadiri', title: 'Financial Analyst', bio: 'Strategic financial modeling and investment advisory expertise.' },
-    { name: 'Sanmi Obasa', title: 'Economic Models Lead', bio: 'Advanced econometric modeling and policy analysis specialist.' }
+    { 
+      name: 'Alain Hoodashtian', 
+      title: 'Global Development Lead', 
+      bio: 'Leading international partnerships and economic development initiatives.',
+      image: '/assets/placeholder-1.svg'
+    },
+    { 
+      name: 'Rajib Verman', 
+      title: 'Systems Analyst', 
+      bio: 'Transforming complex data into actionable business intelligence.',
+      image: '/assets/placeholder-1.svg'
+    },
+    { 
+      name: 'Francis Elimimian', 
+      title: 'Technology Analyst', 
+      bio: 'Designing scalable technology solutions for enterprise transformation.',
+      image: '/assets/placeholder-1.svg'
+    },
+    { 
+      name: 'Sufuyanu Kadiri', 
+      title: 'Financial Analyst', 
+      bio: 'Strategic financial modeling and investment advisory expertise.',
+      image: '/assets/placeholder-1.svg'
+    },
+    { 
+      name: 'Sanmi Obasa', 
+      title: 'Economic Models Lead', 
+      bio: 'Advanced econometric modeling and policy analysis specialist.',
+      image: '/assets/placeholder-1.svg'
+    },
+    {
+      name: 'Dr. Michael Adebayo Adebiyi',
+      title: 'Senior Economist & Policy Advisor',
+      bio: 'Seasoned economist and former Director of Research at Central Bank of Nigeria with 30+ years of experience in monetary policy, econometric research, and institutional development.',
+      fullBio: 'Dr. Michael Adebayo Adebiyi is a Seasoned economist, executive leader, and strategic policy expert with over 30 years of experience delivering and advancing data-driven research & insights, micro/macroeconomic policy development, high-level advisory support, and institutional leadership. Proven expertise in monetary policy, econometric research, and institutional development, with a track record of shaping national economic strategies and strengthening financial systems. Former Director of Research at the Central Bank of Nigeria, with deep involvement in policy formulation, publication leadership, and strategic committee engagement. Adept at translating complex data into actionable solutions, supporting fiscal and development outcomes across Nigeria and West Africa. Globally trained, with advanced exposure to executive programs at the IMF and Harvard Kennedy School.',
+      credentials: 'BSc, MSc, PhD (Econ), HCIB, MIoD, ECPL (Harvard)',
+      image: '/assets/Michael.png'
+    },
+    {
+      name: 'Silas A.',
+      title: 'Technology Specialist',
+      bio: 'Seasoned web developer and techpreneur crafting digital solutions that transform data into actionable insights for organizational growth.',
+      fullBio: 'Silas A. is a technology specialist and seasoned web developer with a background as a techpreneur, bringing practical expertise in building scalable digital solutions. He focuses on translating complex technical requirements into clean, effective platforms that enable organizations to leverage data-driven insights. His approach combines technical excellence with business acumen, ensuring that every solution delivers measurable value and supports strategic objectives.',
+      image: '/assets/Founder.JPG'
+    }
   ];
 
   const values = [
@@ -145,7 +195,7 @@ export default function About() {
             <div key={m.name} className="surface-card p-6">
               <div className="flex items-start gap-4">
                 <Image
-                  src="/assets/placeholder-1.svg"
+                  src={m.image || '/assets/placeholder-1.svg'}
                   alt={m.name}
                   width={56}
                   height={56}
@@ -153,8 +203,23 @@ export default function About() {
                 />
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg">{m.name}</h3>
+                  {m.credentials && (
+                    <p className="text-xs text-body/60 mt-0.5">{m.credentials}</p>
+                  )}
                   <p className="text-sm text-primary font-medium mt-1">{m.title}</p>
-                  <p className="text-sm text-body/70 mt-2">{m.bio}</p>
+                  <div className="mt-2">
+                    <p className={`text-sm text-body/70 ${expandedBios[m.name] ? '' : 'line-clamp-3'}`}>
+                      {expandedBios[m.name] && m.fullBio ? m.fullBio : m.bio}
+                    </p>
+                    {m.fullBio && (
+                      <button
+                        onClick={() => toggleBio(m.name)}
+                        className="text-xs text-primary hover:underline mt-2 font-medium"
+                      >
+                        {expandedBios[m.name] ? 'Show less' : 'Read more'}
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Force HTTPS for all domains
+[[redirects]]
+  from = "http://bosaanalytics.com/*"
+  to = "https://bosaanalytics.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://bosaanalytics.ca/*"
+  to = "https://bosaanalytics.ca/:splat"
+  status = 301
+  force = true
+

@@ -38,7 +38,21 @@ export default function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="container-wide py-6 text-xs opacity-70 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p>© {new Date().getFullYear()} BOSA Analytics. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <p>© {new Date().getFullYear()} BOSA Analytics. All rights reserved.</p>
+            <span className="hidden sm:inline">•</span>
+            <p>
+              Architected by{' '}
+              <a 
+                href="https://brandgoto.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="underline hover:opacity-100 transition-opacity"
+              >
+                Brandgoto
+              </a>
+            </p>
+          </div>
           <div className="flex gap-4">
             <Link href="#">Privacy</Link>
             <Link href="#">Terms</Link>

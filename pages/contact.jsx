@@ -21,7 +21,7 @@ export default function Contact() {
     setShowSuccess(false);
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/info@bosaanalytics.com', {
+      const response = await fetch('https://formsubmit.co/ajax/7eef011346148fe191b09ec093b42cc6', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
